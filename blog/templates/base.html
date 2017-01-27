@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Myblog</title>
+    <link rel="stylesheet" href="{% static 'lib/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/pygments/github.css' %}">
+</head>
+
+
+<body>
+
+
+{% block content %} {% endblock %}
+
+
+
+<div id="footer" class="noselect">
+    <ul id="ft-links">
+        <li><a href="" target="_blank">友情链接1</a></li>
+    </ul>
+    <ul id="ft-about-links">
+        <li><a href="" target="_blank">友情链接2</a></li>
+    </ul>
+    <div id="copyright">&copy; djangoBlog</div>
+</div>
+
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script type="text/javascript" src="{% static 'blog/js/jquery.js' %}"></script>
+<script type="text/javascript" src="{% static 'lib/js/bootstrap.min.js' %}"></script>
+
+</body>
+
+
+</html>

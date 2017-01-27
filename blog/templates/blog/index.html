@@ -1,0 +1,195 @@
+{% extends 'custom_base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+<header class="intro-header" style="background-image: url({% static 'img/home-bg2.jpeg' %})">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="site-heading">
+                    <h1>Double 52</h1>
+                    <hr class="small">
+                    <span class="subheading">The effort deserves to be rewarded</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Main Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-1
+                col-md-8 col-md-offset-1
+                col-sm-12
+                col-xs-12
+                post-container">
+
+
+            {% for article in article_list %}
+
+            <div class="post-preview">
+                <a href="{% url 'blog:detail' article.pk %}">
+                    <h2 class="post-title">
+                        {{ article.title}}
+                    </h2>
+
+                    <!--<div class="post-content-preview">-->
+                        <!--{{ article.abstract}}-->
+                    <!--</div>-->
+
+                </a>
+
+                <!--<p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on September 24, 2014</p>-->
+                <p class="post-meta">Posted on {{ article.created_time }}</p>
+
+            </div>
+            <hr>
+
+            {% endfor %}
+
+            <!-- Pager -->
+            {% if is_paginated %}
+            <ul class="pager">
+
+                <!--{% if page_obj.has_previous %}-->
+                <!--<li class="pre">-->
+                <!--<a href="/blog?page=1">&larr; Home</a>-->
+                <!--</li>-->
+                <!--{% endif %}-->
+
+                {% if page_obj.has_previous %}
+                <li class="previous">
+                    <a href="/blog?page={{ page_obj.previous_page_number }}">&larr; Previous</a>
+                </li>
+                {% endif %}
+
+
+                {% if page_obj.has_next %}
+                <li class="next">
+                    <a href="/blog?page={{ page_obj.next_page_number }}">Next &rarr;</a>
+                </li>
+                {% endif %}
+
+
+            </ul>
+            {% endif %}
+
+
+            <!--{% if is_paginated %}-->
+            <!--<div class="pagination">-->
+            <!--<span class="page-links">-->
+            <!--{% if page_obj.has_previous %}-->
+            <!--<a href="/blog?page={{ page_obj.previous_page_number }}">previous</a>-->
+            <!--{% endif %}-->
+            <!--<span class="page-current">-->
+            <!--Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.-->
+            <!--</span>-->
+            <!--{% if page_obj.has_next %}-->
+            <!--<a href="/blog?page={{ page_obj.next_page_number }}">next</a>-->
+            <!--{% endif %}-->
+            <!--</span>-->
+            <!--</div>-->
+            <!--{% endif %}-->
+        </div>
+
+        <!-- Sidebar Container -->
+        <div class="
+                col-lg-3 col-lg-offset-0
+                col-md-3 col-md-offset-0
+                col-sm-12
+                col-xs-12
+                sidebar-container">
+
+            <!-- Featured Tags -->
+
+            <section>
+                <!-- no hr -->
+                <h5><a href="/blog/tags/">FEATURED TAGS</a></h5>
+                <div class="tags">
+
+                    {% for tag in tags %}
+
+                    <a href="/blog/tags/#{{ tag.name }}" title="{{ tag.name }}" rel="{{ tag.article_set.count }}">{{ tag.name }}</a>
+
+                    {% endfor %}
+
+                </div>
+            </section>
+
+
+            <!-- Short About -->
+            <section class="visible-md visible-lg">
+                <hr>
+                <h5><a href="/about/">ABOUT ME</a></h5>
+                <div class="short-about">
+
+
+                    <img src="{% static 'img/head.jpg' %}"/>
+
+
+                    <p>Android开发者 | Google粉</p>
+
+
+                    <!-- SNS Link -->
+                    <!--<ul class="list-inline">-->
+                        <!--<li>-->
+                            <!--<a target="_blank" href="https://twitter.com/alancheen06">-->
+                                        <!--<span class="fa-stack fa-lg">-->
+                                            <!--<i class="fa fa-circle fa-stack-2x"></i>-->
+                                            <!--<i class="fa fa-twitter fa-stack-1x fa-inverse"></i>-->
+                                        <!--</span>-->
+                            <!--</a>-->
+                        <!--</li>-->
+
+
+                        <!--<li>-->
+                            <!--<a target="_blank" href="https://www.zhihu.com/people/yifeiyuan">-->
+                                        <!--<span class="fa-stack fa-lg">-->
+                                            <!--<i class="fa fa-circle fa-stack-2x"></i>-->
+                                            <!--<i class="fa  fa-stack-1x fa-inverse">知</i>-->
+                                        <!--</span>-->
+                            <!--</a>-->
+                        <!--</li>-->
+
+
+                        <!--<li>-->
+                            <!--<a target="_blank" href="http://weibo.com/alancheeen">-->
+                                        <!--<span class="fa-stack fa-lg">-->
+                                            <!--<i class="fa fa-circle fa-stack-2x"></i>-->
+                                            <!--<i class="fa fa-weibo fa-stack-1x fa-inverse"></i>-->
+                                        <!--</span>-->
+                            <!--</a>-->
+                        <!--</li>-->
+
+
+                        <!--<li>-->
+                            <!--<a target="_blank" href="https://github.com/AlanCheen">-->
+                                        <!--<span class="fa-stack fa-lg">-->
+                                            <!--<i class="fa fa-circle fa-stack-2x"></i>-->
+                                            <!--<i class="fa fa-github fa-stack-1x fa-inverse"></i>-->
+                                        <!--</span>-->
+                            <!--</a>-->
+                        <!--</li>-->
+
+
+                    <!--</ul>-->
+                </div>
+            </section>
+
+            <!-- Friends Blog -->
+
+            <hr>
+
+            <h5>感激并欢迎你的到来</h5>
+            <div class="ds-recent-visitors" data-num-items="30" data-avatar-size="32" id="ds-recent-visitors"></div>
+
+        </div>
+        <!--slide-->
+
+
+    </div>
+</div>
+
+
+{% endblock %}

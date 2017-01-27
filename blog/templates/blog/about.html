@@ -1,0 +1,88 @@
+{% extends 'custom_base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+<header class="intro-header" style="background-image: url({% static 'img/home-bg2.jpeg' %})">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="site-heading">
+                    <h1>About</h1>
+                    <hr class="small">
+                    <span class="subheading">The effort deserves to be rewarded</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<!-- Main Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-1
+                col-md-8 col-md-offset-1
+                col-sm-12
+                col-xs-12
+                post-container">
+
+
+        </div>
+
+        <!-- Sidebar Container -->
+        <div class="
+                col-lg-3 col-lg-offset-0
+                col-md-3 col-md-offset-0
+                col-sm-12
+                col-xs-12
+                sidebar-container">
+
+            <!-- Featured Tags -->
+
+            <section>
+                <!-- no hr -->
+                <h5><a href="/blog/tags/">FEATURED TAGS</a></h5>
+                <div class="tags">
+
+                    {% for tag in tags %}
+
+                    <a href="/blog/tags/#{{ tag.name }}" title="{{ tag.name }}"
+                       rel="{{ tag.article_set.count }}">{{ tag.name }}</a>
+
+                    {% endfor %}
+
+                </div>
+            </section>
+
+
+            <!-- Short About -->
+            <section class="visible-md visible-lg">
+                <hr>
+                <h5><a href="/about/">ABOUT ME</a></h5>
+                <div class="short-about">
+
+
+                    <img src="{% static 'img/head.jpg' %}"/>
+
+
+                    <p>Android开发者 | Google粉</p>
+
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Friends Blog -->
+
+            <hr>
+
+            <h5>感激并欢迎你的到来</h5>
+            <div class="ds-recent-visitors" data-num-items="30" data-avatar-size="32" id="ds-recent-visitors"></div>
+
+        </div>
+        <!--slide-->
+
+    </div>
+</div>
+
+
+{% endblock %}

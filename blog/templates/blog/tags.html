@@ -1,0 +1,70 @@
+{% extends 'custom_base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+<header class="intro-header" style="background-image: url({% static 'img/home-bg2.jpeg' %})">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="site-heading">
+                    <h1>Double 52</h1>
+                    <hr class="small">
+                    <span class="subheading">The effort deserves to be rewarded</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Main Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <!-- 标签云 -->
+            <div id='tag_cloud' class="tags">
+
+                {% for tag in tags %}
+
+                <a href="#{{ tag.name }}" title="{{ tag.name }}"
+                   rel="{{ tag.article_set.count }}">{{ tag.name }}</a>
+
+                {% endfor %}
+
+            </div>
+
+            <!-- 标签列表 -->
+            {% for tag in tags %}
+
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="{{ tag.name }}">
+                    <span class="tag-text">{{ tag.name }}</span>
+                </span>
+
+                {% for article in tag.article_set.all %}
+
+                                <!-- <li class="listing-item">
+                <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                </li> -->
+                <div class="post-preview">
+                    <a href="{% url 'blog:detail' article.pk %}">
+                        <h2 class="post-title">
+                            {{ article.title }}
+                        </h2>
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+
+                {% endfor %}
+
+                <hr>
+            </div>
+
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

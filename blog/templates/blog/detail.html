@@ -1,0 +1,43 @@
+{% extends 'custom_base.html' %}
+{% load staticfiles %}
+{% block content  %}
+
+
+<header class="intro-header" style="background-image: url({% static 'img/yellow.png' %}">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+                <div class="post-heading">
+
+                    <div class="tags">
+
+                        {% for t in tags %}
+                        <a class="tag" href="/blog/tags/#{{ t.name }}" title= "{{ t.name }}">{{ t.name }}</a>
+                        {% endfor %}
+
+                    </div>
+
+                    <h1>{{ article.title }}</h1>
+                    <!--<h2 class="subheading">Problems look mighty small from 150 miles up</h2>-->
+                    <br/>
+                    <span class="meta">Posted on {{ article.created_time }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                {{ article.body|safe }}
+            </div>
+        </div>
+    </div>
+</article>
+
+
+{% endblock %}

@@ -1,0 +1,187 @@
+{% extends 'custom_base.html' %}
+{% block content %}
+
+
+<h1>你好，世界！</h1>
+
+
+<!-- Contextual button for informational alert messages -->
+<button type="button" class="btn btn-info">Info</button>
+
+
+<p>
+    <button type="button" class="btn btn-primary btn-lg">Large button</button>
+    <button type="button" class="btn btn-default btn-lg">Large button</button>
+</p>
+
+
+<div class="container">
+
+    <h1>栅格系统</h1>
+
+
+    <div class="row">
+        <div class="col-md-1">.col-md-1</div>
+        <div class="col-md-1">.col-md-1</div>
+        <div class="col-md-1">.col-md-1</div>
+        <div class="col-md-1">.col-md-1</div>
+        <div class="col-md-1">.col-md-1</div>
+        <div class="col-md-1">.col-md-1</div>
+        <div class="col-md-1">.col-md-1</div>
+        <div class="col-md-1">.col-md-1</div>
+        <div class="col-md-1">.col-md-1</div>
+        <div class="col-md-1">.col-md-1</div>
+        <div class="col-md-1">.col-md-1</div>
+        <div class="col-md-1">.col-md-1</div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">.col-md-8</div>
+        <div class="col-md-4">.col-md-4</div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">.col-md-4</div>
+        <div class="col-md-4">.col-md-4</div>
+        <div class="col-md-4">.col-md-4</div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">.col-md-6</div>
+        <div class="col-md-6">.col-md-6</div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-xs-6 col-sm-3">.col-xs-6 .col-sm-3</div>
+        <div class="col-xs-6 col-sm-3">.col-xs-6 .col-sm-3</div>
+
+        <!-- Add the extra clearfix for only the required viewport -->
+        <div class="clearfix visible-xs-block"> clearfix visible-xs-block</div>
+
+        <div class="col-xs-6 col-sm-3">.col-xs-6 .col-sm-3</div>
+        <div class="col-xs-6 col-sm-3">.col-xs-6 .col-sm-3</div>
+    </div>
+
+
+    <div>
+
+        <h1> 文字 </h1>
+
+        <small>本行内容是在标签内</small>
+        <br>
+        <strong>本行内容是在标签内</strong><br>
+        <em>本行内容是在标签内，并呈现为斜体</em><br>
+        <p class="text-left">向左对齐文本</p>
+        <p class="text-center">居中对齐文本</p>
+        <p class="text-right">向右对齐文本</p>
+        <p class="text-muted">本行内容是减弱的</p>
+        <p class="text-primary">本行内容带有一个 primary class</p>
+        <p class="text-success">本行内容带有一个 success class</p>
+        <p class="text-info">本行内容带有一个 info class</p>
+        <p class="text-warning">本行内容带有一个 warning class</p>
+        <p class="text-danger">本行内容带有一个 danger class</p>
+
+
+        <abbr title="World Wide Web" class="initialism">WWW</abbr><br>
+
+        <!--address-->
+        <address>
+            <strong>Some Company, Inc.</strong><br>
+            007 street<br>
+            Some City, State XXXXX<br>
+            <abbr title="Phone">P:</abbr> (123) 456-7890
+        </address>
+        <address>
+            <strong>Full Name</strong><br>
+            <a href="mailto:#">mailto@somedomain.com</a>
+        </address>
+
+        <blockquote>
+            <p>
+                这是一个默认的引用实例。这是一个默认的引用实例。这是一个默认的引用实例。这是一个默认的引用实例。这是一个默认的引用实例。这是一个默认的引用实例。这是一个默认的引用实例。这是一个默认的引用实例。
+            </p>
+        </blockquote>
+        <blockquote>这是一个带有源标题的引用。
+            <small>
+                Someone famous in
+                <cite title="Source Title">Source Title</cite>
+            </small>
+        </blockquote>
+        <blockquote class="pull-right">这是一个向右对齐的引用。
+            <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
+        </blockquote>
+
+    </div>
+
+
+    <div>
+        <h1>Table</h1>
+
+        <table class="table">
+            <caption>Optional table caption.</caption>
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Username</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr>
+                <td>1</td>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>@twitter</td>
+            </tr>
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <div>
+        <h1>Form </h1>
+
+        <form class="form-inline" role="form">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputFile">File input</label>
+                <input type="file" id="exampleInputFile">
+                <p class="help-block">Example block-level help text here.</p>
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox"> Check me out
+                </label>
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+
+
+    </div>
+
+
+</div>
+
+
+{% endblock %}
