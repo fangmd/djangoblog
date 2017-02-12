@@ -126,6 +126,7 @@ def insert_article_to_db(conn, article):
     :param article: 文章类
     :return:
     """
+    print(article.title)
     if not get_article(conn, article.title):
         try:
             save_tags(article.tags)
@@ -142,6 +143,8 @@ def insert_article_to_db(conn, article):
             # print(add)
             print(article.title)
         conn.commit()
+    else:
+        article.save()
 
 
 def save_category(category_id):
@@ -205,6 +208,11 @@ def parse_md_to_article(file_path):
             article = Article()
 
         article.title = title
+
+        print("----------", title)
+        if title is 'Android Debug Bridge':
+            print("true")
+
         if created_time:
             p = parse_datetime(created_time.strip()).replace(tzinfo=utc)
             naive = p
@@ -260,7 +268,7 @@ def get_all_md_file(root_directory):
 
 
 def root():
-    file_paths = get_all_md_file("/Users/double/Documents/blog2/source/_posts")
+    file_paths = get_all_md_file("/Users/double/Documents/blog/source/_posts")
     conn = get_sqlite3_conn(
         '/Users/double/djangoblog/blog/db.sqlite3')
     for file_path in file_paths:
